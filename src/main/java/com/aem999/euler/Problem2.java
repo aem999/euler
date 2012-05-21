@@ -78,16 +78,16 @@ public class Problem2 implements EulerProblem<Long> {
         LOG.debug("Finding the sum of even terms in the fibonacci sequence up to term [{}] using an optimized algorithm", maxValue);
 
         long sum = 0;
-        int x = 1;
-        int y = 2;
+        int x = 1, y = 2;
+        int nextX, nextY;
 
         while (y <= maxValue) {
             LOG.debug("Summing term [{}]", y);
             sum += y;
-            int new_x = x + (2 * y);
-            int new_y = (2 * x) + (3 * y);
-            x = new_x;
-            y = new_y;
+            nextX = x + (2 * y);
+            nextY = (2 * x) + (3 * y);
+            x = nextX;
+            y = nextY;
         }
 
         LOG.debug("The sum of even terms in the fibonacci sequence terminating at [{}] is [{}]", maxValue, sum);
