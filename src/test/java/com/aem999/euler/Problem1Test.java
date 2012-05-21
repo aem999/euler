@@ -8,15 +8,18 @@ import static org.junit.Assert.assertThat;
 public class Problem1Test {
 
     @Test
-    public void solveProblem() {
-        assertThat(new Problem1().solve(10), is(3+5+6+9L));
-        assertThat(new Problem1().solve(1000), is(233168L));
+    public void canSolveProblem() throws Exception {
+        assertThat(new Problem1().findAnswer(), is(233168L));
     }
 
     @Test
-    public void solveProblemUsingCalculus() {
-        assertThat(new Problem1().solveUsingCalculus(10), is(3+5+6+9L));
-        assertThat(new Problem1().solveUsingCalculus(1000), is(233168L));
+    public void canFindSumOfTerms() {
+        assertThat(new Problem1().findSumOfTerms(10), is(3 + 5 + 6 + 9L));
+    }
+
+    @Test
+    public void canFindSumOfTermsUsingCalculus() {
+        assertThat(new Problem1().findSumOfTermsUsingCalculus(10), is(3 + 5 + 6 + 9L));
     }
 
     @Test

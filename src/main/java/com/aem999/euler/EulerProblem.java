@@ -5,5 +5,9 @@ package com.aem999.euler;
  * @param <T> the answer type
  */
 public interface EulerProblem<T> {
-    T solve();
+
+    /**
+     * Solve the problem and return the answer
+     */
+    T findAnswer();
 }

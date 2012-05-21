@@ -3,10 +3,26 @@ package com.aem999.euler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Problem1 {
+/**
+ * If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
+ * The sum of these multiples is 23.
+ * <p>
+ * Find the sum of all the multiples of 3 or 5 below 1000.
+ * </p>
+ */
+public class Problem1 implements EulerProblem<Long> {
     private static final Logger LOG = LoggerFactory.getLogger(Problem1.class);
 
-    public long solve(int maxNumber) {
+
+    @Override
+    public Long findAnswer() {
+        return findSumOfTermsUsingCalculus(1000);
+    }
+
+    /**
+     * Finds the sum of all multiples of 3 and 5 below {@code maxNumber}
+     */
+    public long findSumOfTerms(int maxNumber) {
         long sum = 0;
         for (int i = 3; i < maxNumber; i++) {
             if (i % 3 == 0 || i % 5 == 0) {
@@ -18,16 +34,16 @@ public class Problem1 {
         return sum;
     }
 
-    public long solveUsingCalculus(int maxNumber) {
+    /**
+     * Finds the sum of all multiples of 3 and 5 below {@code maxNumber}
+     * <p>
+     * This version used calculus to provide a better performing solution than {@link #findSumOfTerms(int)}
+     * </p>
+     */
+    public long findSumOfTermsUsingCalculus(int maxNumber) {
         return findSumOfTerms(3, maxNumber) +
                findSumOfTerms(5, maxNumber) -
                findSumOfTerms(15, maxNumber);
-    }
-
-    private long findSumOfTerms(int d, int maxNumber) {
-        int lastTerm = findLastTerm(d, maxNumber);
-        int noOfTerms = findNumberOfTerms(d, lastTerm, d);
-        return findSumOfTerms(d, lastTerm, noOfTerms);
     }
 
     /**
@@ -77,5 +93,18 @@ public class Problem1 {
      */
     public int findNumberOfTerms(int a1, int an, int d) {
         return (an - a1 + d) / d;
+    }
+
+
+    private long findSumOfTerms(int d, int maxNumber) {
+        int lastTerm = findLastTerm(d, maxNumber);
+        int noOfTerms = findNumberOfTerms(d, lastTerm, d);
+        return findSumOfTerms(d, lastTerm, noOfTerms);
+    }
+
+
+    public static void main(String[] args) {
+        long answer = new Problem1().findAnswer();
+        LOG.info("The answer is {}", answer);
     }
 }

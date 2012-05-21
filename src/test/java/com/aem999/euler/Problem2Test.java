@@ -10,7 +10,7 @@ public class Problem2Test {
 
     @Test
     public void canSolveProblem() {
-        assertThat(new Problem2().solve(), is(4613732L));
+        assertThat(new Problem2().findAnswer(), is(4613732L));
     }
 
     @Test

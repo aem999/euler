@@ -17,11 +17,9 @@ public class Problem2 implements EulerProblem<Long> {
     private static final Logger LOG = LoggerFactory.getLogger(Problem2.class);
     private static final int FOUR_MILLION = 4_000_000;
 
-    /**
-     * Solves the problem and returns the answer
-     */
+
     @Override
-    public Long solve() {
+    public Long findAnswer() {
         return findSumOfEvenTermsInFibonacciSequenceUsingOptimizedAlgorithm(FOUR_MILLION);
     }
 
@@ -97,7 +95,7 @@ public class Problem2 implements EulerProblem<Long> {
     }
 
     public static void main(String[] args) {
-        long answer = new Problem2().solve();
+        long answer = new Problem2().findAnswer();
         LOG.info("The answer is {}", answer);
     }
 }
