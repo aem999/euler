@@ -13,8 +13,17 @@ import org.slf4j.LoggerFactory;
  * By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the
  * even-valued terms.</p>
  */
-public class Problem2 {
+public class Problem2 implements EulerProblem<Long> {
     private static final Logger LOG = LoggerFactory.getLogger(Problem2.class);
+    private static final int FOUR_MILLION = 4_000_000;
+
+    /**
+     * Solves the problem and returns the answer
+     */
+    @Override
+    public Long solve() {
+        return findSumOfEvenTermsInFibonacciSequenceUsingOptimizedAlgorithm(FOUR_MILLION);
+    }
 
     /**
      * Finds the the Fibonacci sequence starting at 1, 2 and terminating at {@code maxValue}
@@ -34,7 +43,7 @@ public class Problem2 {
             term = current + previous;
         }
 
-        LOG.info("The fibonacci sequence terminating at [{}] is {}", maxValue, sequence);
+        LOG.debug("The fibonacci sequence terminating at [{}] is {}", maxValue, sequence);
         return sequence;
     }
 
@@ -54,7 +63,7 @@ public class Problem2 {
             }
         }
 
-        LOG.info("The sum of even terms in the fibonacci sequence terminating at [{}] is [{}]", maxValue, sum);
+        LOG.debug("The sum of even terms in the fibonacci sequence terminating at [{}] is [{}]", maxValue, sum);
         return sum;
     }
 
@@ -83,7 +92,12 @@ public class Problem2 {
             y = new_y;
         }
 
-        LOG.info("The sum of even terms in the fibonacci sequence terminating at [{}] is [{}]", maxValue, sum);
+        LOG.debug("The sum of even terms in the fibonacci sequence terminating at [{}] is [{}]", maxValue, sum);
         return sum;
+    }
+
+    public static void main(String[] args) {
+        long answer = new Problem2().solve();
+        LOG.info("The answer is {}", answer);
     }
 }

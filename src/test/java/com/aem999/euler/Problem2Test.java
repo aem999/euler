@@ -9,6 +9,11 @@ import static org.junit.Assert.assertThat;
 public class Problem2Test {
 
     @Test
+    public void canSolveProblem() {
+        assertThat(new Problem2().solve(), is(4613732L));
+    }
+
+    @Test
     public void canFindFibonacciSequence() {
         assertThat(new Problem2().findFibonacciSequence(89), is(asList(1, 2, 3, 5, 8, 13, 21, 34, 55, 89)));
     }
