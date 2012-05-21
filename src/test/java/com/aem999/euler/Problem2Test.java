@@ -19,4 +19,12 @@ public class Problem2Test {
         assertThat(new Problem2().findSumOfEvenTermsInFibonacciSequence(100), is(2 + 8 + 34L));
         assertThat(new Problem2().findSumOfEvenTermsInFibonacciSequence(4000000), is(4613732L));
     }
+
+    @Test
+    public void canFindSumOfEvenTermsInFibonacciSequenceUsingOptimizedAlgorithm() {
+        assertThat(new Problem2().findSumOfEvenTermsInFibonacciSequenceUsingOptimizedAlgorithm(10), is(2 + 8L));
+        assertThat(new Problem2().findSumOfEvenTermsInFibonacciSequenceUsingOptimizedAlgorithm(100), is(2 + 8 + 34L));
+        assertThat(new Problem2().findSumOfEvenTermsInFibonacciSequenceUsingOptimizedAlgorithm(4000000), is(4613732L));
+    }
+
 }
