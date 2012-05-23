@@ -30,6 +30,8 @@ public class Problem3Test {
     @Test
     public void canFindPrimeFactorsUsingOptimizedAlgorithm() {
         assertThat(new Problem3().findPrimeFactorsUsingOptimizedAlgorithm(15L), is(Arrays.asList(3, 5)));
+        assertThat(new Problem3().findPrimeFactorsUsingOptimizedAlgorithm(18L), is(Arrays.asList(2, 3, 3)));
+        assertThat(new Problem3().findPrimeFactorsUsingOptimizedAlgorithm(1026L), is(Arrays.asList(2, 3, 3, 3, 19)));
         assertThat(new Problem3().findPrimeFactorsUsingOptimizedAlgorithm(13195L), is(Arrays.asList(5, 7, 13, 29)));
         assertThat(new Problem3().findPrimeFactorsUsingOptimizedAlgorithm(600851475143L), is(Arrays.asList(71, 839, 1471, 6857)));
     }

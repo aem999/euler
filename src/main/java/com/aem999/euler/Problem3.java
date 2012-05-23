@@ -50,8 +50,8 @@ public class Problem3 implements EulerProblem<Integer> {
     /**
      * Finds the prime factors of the supplied number using an optimized algorithm:
      * <p>
-     * By ignoring prime factor 2, we know that the prime factors will be odd and so can start the loop at 3 and
-     * increment by 2 instead of 1.</p>
+     * By handling prime 2 separately, we know that the other prime factors will all be odd and so can start the main
+     * loop at 3 and increment the divisor by 2 instead of 1.</p>
      * <p>
      * The outer loop finds the first prime factor, and as we know that there can be at most one prime factor greater
      * than the square root of the number, then we can stop this loop when the divisor reaches the square root of the
@@ -63,15 +63,24 @@ public class Problem3 implements EulerProblem<Integer> {
         List<Integer> primeFactors = new ArrayList<>();
         long n = number;
 
-        for (int d=3; d*d < n; d+=2) {
+        if (n % 2 == 0) {
+            while (n % 2 == 0) {
+                primeFactors.add(2);
+                n /= 2;
+            }
+        }
+
+        for (int d=3; d*d <= n; d+=2) {
             while (n % d == 0) {
                 primeFactors.add(d);
                 n /= d;
             }
         }
 
-        assert n <= Integer.MAX_VALUE;
-        primeFactors.add((int) n);
+        if (n > 1) {
+            assert n <= Integer.MAX_VALUE;
+            primeFactors.add((int) n);
+        }
 
         String duration = String.format("%.2f", (System.nanoTime() - start) / 1000000.0);
         LOG.debug("Found prime factors for [{}] using optimized algorithm in [{}ms]: {}", new Object[]{number, duration, primeFactors});
