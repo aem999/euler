@@ -27,4 +27,10 @@ public class Problem3Test {
         assertThat(new Problem3().findPrimeFactors(600851475143L), is(Arrays.asList(71, 839, 1471, 6857)));
     }
 
+    @Test
+    public void canFindPrimeFactorsUsingOptimizedAlgorithm() {
+        assertThat(new Problem3().findPrimeFactorsUsingOptimizedAlgorithm(15L), is(Arrays.asList(3, 5)));
+        assertThat(new Problem3().findPrimeFactorsUsingOptimizedAlgorithm(13195L), is(Arrays.asList(5, 7, 13, 29)));
+        assertThat(new Problem3().findPrimeFactorsUsingOptimizedAlgorithm(600851475143L), is(Arrays.asList(71, 839, 1471, 6857)));
+    }
 }
