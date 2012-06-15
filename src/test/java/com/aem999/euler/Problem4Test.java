@@ -19,6 +19,11 @@ public class Problem4Test {
     }
 
     @Test
+    public void canFindLargestPalindromeUsingOptimizedAlgorithm() {
+        assertThat(new Problem4().findLargestPalindromeUsingOptimizedAlgorithm(), is(906609));
+    }
+
+    @Test
     public void canDetermineIfNumberIsAPalindrome() {
         assertThat(new Problem4().isPalindrome(1), is(true));
         assertThat(new Problem4().isPalindrome(11), is(true));
