@@ -1,9 +1,9 @@
 package com.aem999.euler;
 
 /**
- *
+ * What is the smallest number divisible by each of the numbers 1 to 20?
  */
-class Problem5 implements EulerProblem<Integer> {
+public class Problem5 implements EulerProblem<Integer> {
     public Integer findAnswer() {
         return findSmallestNumberDivisibleByAllIntegers(1, 20);
     }

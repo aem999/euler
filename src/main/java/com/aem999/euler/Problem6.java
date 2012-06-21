@@ -1,7 +1,7 @@
 package com.aem999.euler;
 
 /**
- *
+ * What is the difference between the sum of the squaresof the first 100 natural numbers and the square of the sums?
  */
 public class Problem6 implements EulerProblem<Integer> {
 
